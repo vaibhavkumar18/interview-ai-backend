@@ -3,12 +3,13 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const app = express();
+const config = require('./config/config');
 
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: config.FRONTEND_URL,
     credentials: true
 }));
 

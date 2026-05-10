@@ -14,7 +14,8 @@ if(!process.env.GOOGLE_GENAI_API_KEY) {
 const config = {
     MONGO_URI: process.env.MONGO_URI,
     JWT_SECRET: process.env.JWT_SECRET,
-    GOOGLE_GENAI_API_KEY: process.env.GOOGLE_GENAI_API_KEY
+    GOOGLE_GENAI_API_KEY: process.env.GOOGLE_GENAI_API_KEY,
+    FRONTEND_URL: process.env.FRONTEND_URL
 }
 
 module.exports = config;
