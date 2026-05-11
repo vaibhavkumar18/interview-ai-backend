@@ -60,18 +60,21 @@ async function registerUserController(req, res) {
  */
 async function loginUserController(req, res) {
   const { email, password } = req.body;
+  console.log("email", email, "password", password);
 
   if (!email || !password) {
     return res.status(400).json({ message: "Email and password are required" });
   }
 
   const user = await userModel.findOne({ email });
+  console.log("user", user);
 
   if (!user) {
     return res.status(400).json({ message: "Invalid email or password" });
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
+  console.log("isPasswordValid", isPasswordValid);
 
   if (!isPasswordValid) {
     return res.status(400).json({ message: "Invalid email or password" });
@@ -80,6 +83,7 @@ async function loginUserController(req, res) {
   const token = jwt.sign({ id: user._id }, config.JWT_SECRET, {
     expiresIn: "1d",
   });
+  console.log("token", token);
   res.cookie("token", token);
   res.status(200).json({
     message: "User logged in successfully",

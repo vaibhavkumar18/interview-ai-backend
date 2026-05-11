@@ -16,6 +16,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
+console.log("Frontend URL:", config.FRONTEND_URL);
 
 /* require all the routes here */
 const authRouter = require("./routes/auth.routes");
