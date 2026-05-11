@@ -1,23 +1,25 @@
-const express = require('express');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
+const express = require("express");
+const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const app = express();
-const config = require('./config/config');
+const config = require("./config/config");
 
 app.use(express.json());
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 app.use(cookieParser());
-app.use(cors({
+app.use(
+  cors({
     origin: config.FRONTEND_URL,
-    credentials: true
-}));
-
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 
 /* require all the routes here */
-const authRouter = require('./routes/auth.routes');
-const interviewRouter = require('./routes/interview.routes');
-
+const authRouter = require("./routes/auth.routes");
+const interviewRouter = require("./routes/interview.routes");
 
 /* using all the routes here */
 app.use("/api/auth", authRouter);
