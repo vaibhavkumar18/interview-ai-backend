@@ -2,9 +2,9 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const app = express();
 const config = require("./config/config");
-
+const app = express();
+app.set("trust proxy", 1);
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
@@ -17,7 +17,6 @@ app.use(
   }),
 );
 
-console.log("Frontend URL:", config.FRONTEND_URL);
 
 /* require all the routes here */
 const authRouter = require("./routes/auth.routes");
