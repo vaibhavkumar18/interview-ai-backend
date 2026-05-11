@@ -2,7 +2,7 @@ const { GoogleGenAI } = require("@google/genai");
 const config = require("../config/config");
 const { z } = require("zod");
 const { zodToJsonSchema } = require("zod-to-json-schema");
-const pupeteer = require("puppeteer");
+const puppeteer = require("puppeteer");
 
 const ai = new GoogleGenAI({
   apiKey: config.GOOGLE_GENAI_API_KEY,
@@ -117,9 +117,9 @@ async function generateInterviewReport({
 }
 
 async function generatePDFfromHTML(htmlContent) {
-  const browser = await pupeteer.launch({
+  const browser = await puppeteer.launch({
     headless: true,
-    executablePath: pupeteer.executablePath(),
+    executablePath: puppeteer.executablePath(),
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
