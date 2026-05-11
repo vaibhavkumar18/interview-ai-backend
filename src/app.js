@@ -16,6 +16,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
+app.options('*', cors());
 console.log("Frontend URL:", config.FRONTEND_URL);
 
 /* require all the routes here */
