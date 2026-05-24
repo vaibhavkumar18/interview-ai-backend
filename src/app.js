@@ -2,12 +2,14 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
 const config = require("./config/config");
 const app = express();
 app.set("trust proxy", 1);
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
+app.use("/images", express.static(path.join(__dirname, "..", "public", "Images")));
 app.use(
   cors({
     origin: config.FRONTEND_URL,
