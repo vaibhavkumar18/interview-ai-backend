@@ -62,7 +62,7 @@ This is the backend service for InterviewAI. It exposes RESTful APIs consumed by
 
 ## 🏗️ Architecture
 
-<img width="30%" alt="image" src="https://github.com/user-attachments/assets/9b26ccdf-ae0c-4b10-8079-dfe370ed9fe5" />
+<img width="40%" alt="image" src="https://github.com/user-attachments/assets/9b26ccdf-ae0c-4b10-8079-dfe370ed9fe5" />
 
 ---
 
